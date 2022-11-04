@@ -2,16 +2,15 @@
 
 
 /**
- * Retrieve/Search APIs and API Documents by Content 
- * This operation provides you a list of available APIs and API Documents qualifying the given keyword match. 
+ * Get All Useage Plans
+ * This operation can be used to list the available usage plans.  
  *
  * limit Integer Maximum size of resource array to return.  (optional)
  * offset Integer Starting point within the complete list of items qualified.  (optional)
- * query String **Search**.  You can search by proving a keyword.  (optional)
  * ifNoneMatch String Validator for conditional requests; based on the ETag of the formerly retrieved variant of the resource.  (optional)
- * returns SearchResultList
+ * returns UsagePlanList
  **/
-exports.search = function(limit,offset,query,ifNoneMatch) {
+exports.getAllUsagePlans = function(limit,offset,ifNoneMatch) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -23,7 +22,7 @@ exports.search = function(limit,offset,query,ifNoneMatch) {
     "limit" : 1
   },
   "count" : 1,
-  "list" : [ { }, { } ]
+  "list" : [ "", "" ]
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

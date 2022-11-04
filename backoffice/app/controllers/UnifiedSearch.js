@@ -3,8 +3,8 @@
 var utils = require('../utils/writer.js');
 var UnifiedSearch = require('../service/UnifiedSearchService');
 
-module.exports.throttlingPolicySearch = function throttlingPolicySearch (req, res, next, query) {
-  UnifiedSearch.throttlingPolicySearch(query)
+module.exports.search = function search (req, res, next, limit, offset, query, ifNoneMatch) {
+  UnifiedSearch.search(limit, offset, query, ifNoneMatch)
     .then(function (response) {
       utils.writeJson(res, response);
     })

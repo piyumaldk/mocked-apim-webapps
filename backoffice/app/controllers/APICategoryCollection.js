@@ -3,8 +3,8 @@
 var utils = require('../utils/writer.js');
 var APICategoryCollection = require('../service/APICategoryCollectionService');
 
-module.exports.api_categoriesGET = function api_categoriesGET (req, res, next) {
-  APICategoryCollection.api_categoriesGET()
+module.exports.getAllAPICategories = function getAllAPICategories (req, res, next) {
+  APICategoryCollection.getAllAPICategories()
     .then(function (response) {
       utils.writeJson(res, response);
     })

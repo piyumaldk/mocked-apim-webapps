@@ -2,72 +2,65 @@
 
 
 /**
- * Retreive Admin Settings
- * Retreive admin settings 
+ * Retreive BackOffice Settings
+ * Retreive BackOffice settings 
  *
  * returns Settings
  **/
-exports.settingsGET = function() {
+exports.getSettings = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "analyticsEnabled" : false,
-  "keyManagerConfiguration" : [ {
-    "defaultConsumerKeyClaim" : "azp",
-    "endpointConfigurations" : [ null, null ],
-    "displayName" : "default",
-    "configurations" : [ {
-      "default" : "admin",
-      "values" : [ { }, { } ],
-      "name" : "consumer_key",
-      "multiple" : true,
-      "tooltip" : "Enter username to connect to key manager",
-      "label" : "Consumer Key",
-      "type" : "select",
-      "required" : true,
-      "mask" : true
+  "devportalUrl" : "https://localhost:9443/devportal",
+  "environment" : [ {
+    "endpointURIs" : [ {
+      "protocol" : "default",
+      "endpointURI" : "default"
     }, {
-      "default" : "admin",
-      "values" : [ { }, { } ],
-      "name" : "consumer_key",
-      "multiple" : true,
-      "tooltip" : "Enter username to connect to key manager",
-      "label" : "Consumer Key",
-      "type" : "select",
-      "required" : true,
-      "mask" : true
+      "protocol" : "default",
+      "endpointURI" : "default"
     } ],
-    "defaultScopesClaim" : "scope",
-    "type" : "default"
+    "provider" : "wso2",
+    "showInApiConsole" : true,
+    "displayName" : "Default",
+    "serverUrl" : "https://localhost:9443/services/",
+    "name" : "default",
+    "id" : "id",
+    "additionalProperties" : [ {
+      "value" : "wso2",
+      "key" : "Organization"
+    }, {
+      "value" : "wso2",
+      "key" : "Organization"
+    } ],
+    "type" : "hybrid"
   }, {
-    "defaultConsumerKeyClaim" : "azp",
-    "endpointConfigurations" : [ null, null ],
-    "displayName" : "default",
-    "configurations" : [ {
-      "default" : "admin",
-      "values" : [ { }, { } ],
-      "name" : "consumer_key",
-      "multiple" : true,
-      "tooltip" : "Enter username to connect to key manager",
-      "label" : "Consumer Key",
-      "type" : "select",
-      "required" : true,
-      "mask" : true
+    "endpointURIs" : [ {
+      "protocol" : "default",
+      "endpointURI" : "default"
     }, {
-      "default" : "admin",
-      "values" : [ { }, { } ],
-      "name" : "consumer_key",
-      "multiple" : true,
-      "tooltip" : "Enter username to connect to key manager",
-      "label" : "Consumer Key",
-      "type" : "select",
-      "required" : true,
-      "mask" : true
+      "protocol" : "default",
+      "endpointURI" : "default"
     } ],
-    "defaultScopesClaim" : "scope",
-    "type" : "default"
+    "provider" : "wso2",
+    "showInApiConsole" : true,
+    "displayName" : "Default",
+    "serverUrl" : "https://localhost:9443/services/",
+    "name" : "default",
+    "id" : "id",
+    "additionalProperties" : [ {
+      "value" : "wso2",
+      "key" : "Organization"
+    }, {
+      "value" : "wso2",
+      "key" : "Organization"
+    } ],
+    "type" : "hybrid"
   } ],
-  "scopes" : [ "scopes", "scopes" ]
+  "scopes" : [ "apim:api_create", "apim:api_manage", "apim:api_publish" ],
+  "monetizationAttributes" : [ ],
+  "authorizationHeader" : "authorization",
+  "docVisibilityEnabled" : false
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

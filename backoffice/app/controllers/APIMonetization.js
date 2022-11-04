@@ -1,10 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Environments = require('../service/EnvironmentsService');
+var APIMonetization = require('../service/APIMonetizationService');
 
-module.exports.environmentsEnvironmentIdDELETE = function environmentsEnvironmentIdDELETE (req, res, next, environmentId) {
-  Environments.environmentsEnvironmentIdDELETE(environmentId)
+module.exports.addAPIMonetization = function addAPIMonetization (req, res, next, body, runtimeId, apiId) {
+  APIMonetization.addAPIMonetization(body, runtimeId, apiId)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -13,8 +13,8 @@ module.exports.environmentsEnvironmentIdDELETE = function environmentsEnvironmen
     });
 };
 
-module.exports.environmentsEnvironmentIdPUT = function environmentsEnvironmentIdPUT (req, res, next, body, environmentId) {
-  Environments.environmentsEnvironmentIdPUT(body, environmentId)
+module.exports.getAPIMonetization = function getAPIMonetization (req, res, next, runtimeId, apiId) {
+  APIMonetization.getAPIMonetization(runtimeId, apiId)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -23,8 +23,8 @@ module.exports.environmentsEnvironmentIdPUT = function environmentsEnvironmentId
     });
 };
 
-module.exports.environmentsGET = function environmentsGET (req, res, next) {
-  Environments.environmentsGET()
+module.exports.getAPIRevenue = function getAPIRevenue (req, res, next, runtimeId, apiId) {
+  APIMonetization.getAPIRevenue(runtimeId, apiId)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -33,8 +33,8 @@ module.exports.environmentsGET = function environmentsGET (req, res, next) {
     });
 };
 
-module.exports.environmentsPOST = function environmentsPOST (req, res, next, body) {
-  Environments.environmentsPOST(body)
+module.exports.getSubscriptionUsage = function getSubscriptionUsage (req, res, next, subscriptionId) {
+  APIMonetization.getSubscriptionUsage(subscriptionId)
     .then(function (response) {
       utils.writeJson(res, response);
     })
